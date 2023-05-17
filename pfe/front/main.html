@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/stylemain.css">
+    <script src="./js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="part-up">
+            <div class="part-left">
+                <a class="service -a">
+                    <h4 id="date"></h4>
+                    <img class="icon" src="./src/turn-back.png" alt="">
+                    <script>
+                        function updateClock() {
+                            var now = new Date();
+                            var hour = now.getHours(); 
+                            var minute = now.getMinutes();
+                            var second = now.getSeconds();
+                            var timeString = hour.toString().padStart(2, '0') + ':' +
+                                              minute.toString().padStart(2, '0') + ':' +
+                                              second.toString().padStart(2, '0');
+                            document.getElementById('date').textContent = timeString;
+                        }
+                
+                        updateClock();
+                        setInterval(updateClock, 1000);
+                    </script>
+                </a>
+                    <a class="service" onclick="nextTest('part-oxy')">
+                        <h4>Oxygène</h4>
+                        <img class="icon" src="./src/pulse-oximeter.png" alt="">
+                        
+                    </a>
+                    <a class="service" onclick="nextTest('part-poid')">
+                        <h4>Poids</h4>
+                        <img class="icon" src="./src/scale.png" alt="">
+                       
+                    </a>
+    
+                
+                    <a class="service" onclick="nextTest('part-size')">
+                        <h4>Taille</h4>
+                        <img class="icon" src="./src/taille1.png" alt="">
+                       
+                    </a>
+                    <a class="service" onclick="nextTest('part-tensio')">
+                        <h4>Tension</h4>
+                        <img class="icon" src="./src/tension1.png" alt="">
+                        
+                    </a>
+                    <a class="service" onclick="nextTest('part-temp')">
+                        <h4>Température</h4>
+                        <img class="icon" src="./src/temperature.png" alt="">
+                    </a>
+                    
+            </div>
+                
+                <div class="part-right" id="part-right">
+                  
+        </div>   
+        <div class="part-buttom">
+            <div class="logo -m">
+                <img src="./src/images/medilogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="./src/logowincom.png" alt="">
+            </div>
+            <div class="leftb">
+                <a class="data-out" href="./partsauto/getinfos.html" >
+                    <img class="icon" src="./src/ticket.png" alt="">
+                    <h4>Terminer le test</h4>
+                </a>
+    
+            </div>
+        </div>
+    
+    
+    </div>
+</body>
+</html>
+
+<script>
+    function nextTest(msg){
+      if(msg==="part-oxy"){
+        window.location.href = "./parts_test/oxy.html";
+      }
+      else if(msg ==="part-poid"){
+        window.location.href = "./parts_test/poid.html";
+      }
+      else if(msg==="part-size"){
+        window.location.href = "./parts_test/size.html";
+      }
+      else if(msg ==="part-temp"){
+        window.location.href = "./parts_test/temp.html";
+      }
+      else if(msg ==="part-tensio"){
+        window.location.href = "./parts_test/tensio.html";
+      }
+
+}
+</script>

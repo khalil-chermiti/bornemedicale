@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- css likns -->
+     <link rel="stylesheet" href="../styles/stylemain.css">
+     <link rel="stylesheet" href="../styles/style_auto.css">
+     <!-- js link -->
+     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="../js/mqtt.js"></script>
+     <script src="../js/automatic.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="part-up">
+            <div class="part-left">
+                <a class="service -a">
+                    <h4 id="date"></h4>
+                     
+                    <script>
+                        function updateClock() {
+                            var now = new Date();
+                            var hour = now.getHours();
+                            var minute = now.getMinutes();
+                            var second = now.getSeconds();
+                            var timeString = hour.toString().padStart(2, '0') + ':' +
+                                              minute.toString().padStart(2, '0') + ':' +
+                                              second.toString().padStart(2, '0');
+                            document.getElementById('date').textContent = timeString;
+                        }
+                
+                        updateClock();
+                        setInterval(updateClock, 1000);
+                    </script>
+                </a>
+                    <a class="service" onclick="nextTest('part-oxy')" >
+                        <h4>Oxymétre</h4>
+                        <img class="icon" src="../src/pulse-oximeter.png" alt="">
+                        
+                    </a>
+                    <a class="service" onclick="nextTest('part-poid')">
+                        <h4>Pése-Pérsonne</h4>
+                        <img class="icon" src="../src/scale.png" alt="">
+                       
+                    </a>
+    
+                
+                    <a class="service" onclick="nextTest('part-size')" style="margin-left: -320px;">
+                        <h4>Taille</h4>
+                        <img class="icon" src="../src/taille1.png" alt="">
+                       
+                    </a>
+                    <a class="service" onclick="nextTest('part-tensio')">
+                        <h4>Tonsiométer</h4>
+                        <img class="icon" src="../src/tension1.png" alt="">
+                        
+                    </a>
+                    <a class="service" onclick="nextTest('part-temp')">
+                        <h4>Térmométre</h4>
+                        <img class="icon" src="../src/temperature.png" alt="">
+                    </a>
+                    
+            </div>
+                
+                <div class="part-right" id="part-right" style="background-image:url(../src/images/size.gif);">
+                    <div class="part-oxy" id="part-size">
+                        <div class="title"><h2>Taille</h2>
+                        </div>
+            
+                        <!-- contunue -->
+                        <div class="contunue" id="contunue">
+                        
+                            <input type="button" value="Démarrer" onclick="next('size');">
+                        </div>
+                        <!-- start -->
+                        <div class="test" id="size">
+                            <h4 id="msg1">Veuillez patienter</h4>
+                            <h3 id="msg2">5 secondes</h3>
+                        </div>
+                        <!-- fin -->
+                    </div>
+                  
+                </div>
+        </div>   
+        <div class="part-buttom">
+            <div class="logo">
+                <img src="../src/images/medicalbornelogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="../src/logowincom.png" alt="">
+            </div>
+        </div>
+    
+    
+    </div>
+    <div class="clock-auto" id="clock">
+        <h3>
+            Le test de taille commencera dans 
+            <span id="timesleep">7</span> secondes. <br>
+            Il faut tenir debout sous le capteur en haut de la machine.
+        </h3>
+    </div>
+    <script>
+        nextAuto()
+        lireson("size_arab.mp3")
+        setTimeout(()=>{lireson("size_ang.mp3")},8000)
+    </script>
+</body>
+</html>

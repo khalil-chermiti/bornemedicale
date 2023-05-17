@@ -1,0 +1,247 @@
+body{
+    
+    background-image: url(../src/back.jpg);
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+/********** Infos css ************/
+
+.ViewInfos{
+    background-color:rgb(255, 255, 255,0.529);
+    width: 60%;
+    height: 100%;
+    padding: 50px;
+}
+.ViewInfos .list-infos{
+    border: 2px solid black;
+    background-color: white;
+    padding: 40px;
+    color: black;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.list-infos .headerlist{
+    display: flex;
+    justify-content: space-between;
+}
+.bodylist{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.bodylist .listright{
+    width: 60%;
+}
+.bodylist .listleft{
+    width: 40%;
+}
+.bodylist .listright h4{
+    border-bottom: #3A6DA1 solid 2px;
+    padding-left: 10px;
+    padding-bottom: 3px;
+}
+.bodylist .listleft h4{
+    border-bottom: #3A6DA1 solid 2px;
+    padding-bottom: 3px;
+    
+}
+.footerlist{
+    margin-top: -20px;
+}
+.contacts{
+    display: flex;
+    margin-top: -20px;
+    justify-content: space-between;
+}
+
+/* getinfo */
+.get-infos{
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom:100px;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.529);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.get-infos img{
+    width: 200px;
+}
+/* .leftb{
+    display: flex;
+    flex-direction: column;
+} */
+.data-out{
+    text-decoration: none;
+    margin: 8px;
+    height:70px;
+    background-color:rgba(11, 31, 105, 0.514) ;
+    width: 300px;
+    padding: 5px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.data-out:hover{
+    cursor: pointer;
+}
+.data-out img{
+    margin: 12px; 
+    width: 70px;
+    height: 70px;
+}
+
+.logo{
+    width: 100%;
+    padding-top: 50px;
+    text-align: center;
+}
+.logo img{
+    width: 300px;
+    margin-top: -40px;
+    margin-bottom: 70px;
+}
+.logo h1{
+    color: rgb(15, 25, 93);
+    text-align: center;
+    font-size: 50px;
+    margin-top: -50px;
+    margin-bottom: 30px;
+}
+.datatitre{
+    margin-top: 4px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height:60px;
+    padding-top: 35px;
+}
+.-cancel{
+
+    background-color: rgba(154, 5, 5, 0.823);
+}
+
+/* alert css */
+
+.alert-apk .alert-icon{
+    margin:-10px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -50px;   
+    border: 4px solid white; 
+    background-color: white;
+    border-radius: 50%;
+}
+#alert-sort .alert-icon img{
+    width: 70px;
+    height: 70px;
+}
+
+.alert-apk{
+    visibility: hidden;
+    position: fixed;
+    left: 30%;
+    right: 30%;
+    top: -23%;
+    text-align: center;
+    transform: scale(0.1) ;
+    transition: all ease 0.5s;           
+}
+.alert-apk-class{
+    visibility: inherit;
+    transform: scale(1.5);
+    position: fixed;
+    left: 30%;
+    right: 30%;
+    top: 30%;
+    text-align: center;
+    transition: all ease 0.5s ;
+}
+.info-alert{
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 30px;
+}
+.headtitre h2{
+    margin-bottom: -8px;
+    color: white;
+}
+.alert-apk .headtitre{
+    border-radius: 10px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.alert-apk h3{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+h3 span{
+    color: #0ed633;
+}
+button{
+    background-color: rgb(51, 51, 51);
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+}
+#alert-send-mail .headtitre{
+    background:linear-gradient(#3A6DA1,#144371);
+}
+#alert-gettike .headtitre{
+    background:linear-gradient(rgb(14, 212, 14),green)
+}
+#alert-sort .headtitre{
+    background:linear-gradient(red,rgb(136, 9, 9));
+}
+#alert-send-mail .envoyer-email {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(227, 227, 227);
+    width: min-content;
+    height: 30px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 50px;
+}
+#alert-send-mail .envoyer-email .email{
+    height: 25px;
+    width: 300px;
+    border: none;
+    background: none;
+    outline: none;
+    margin-left: 10px;
+}
+#alert-send-mail .envoyer-email .mail-icon{
+    width: 30px;
+
+}
+#alert-gettike span{
+    color: #A10707;
+}
+

@@ -1,0 +1,215 @@
+@font-face {
+  font-family: 'MaPolicePersonnalisee';
+  src: url('police-personnalisee.ttf');
+  /* Vous pouvez également inclure d'autres formats de police pour une compatibilité croisée */
+}
+
+body{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url(../src/back.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.part-up{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 20%;
+    /* background-color: rgb(5, 19, 79); */
+    min-height: 80%;
+}
+.part-buttom{
+    /* background-color: rgb(5, 19, 79); */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 10%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 40px;
+    justify-content: space-between;
+}
+
+.part-left{
+    width: 25%;
+    align-items: center;
+    /* background-color: rgb(5, 19, 79); */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    min-height: 90%;
+}
+
+.part-right{
+    width: 75%;
+    text-align: center;
+    background-image: url(../src/Color\ Matte.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    align-items: center;
+}
+
+
+.service{
+    text-decoration: none;
+    margin: 4px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+    background-color: rgba(11, 31, 105, 0.6);
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    padding-left:30px ;
+    padding-right: 30px;
+    margin-left: 150px;
+    transition: all 0.5s;
+}
+.service:not(.-a):hover{
+    cursor: pointer;
+    margin-left: -140px;
+    
+}
+.service:active{
+    margin-left: -140px;
+}
+.-a{
+    background-color: rgba(180, 10, 10, 0.658);
+    margin-left: 140px;
+}
+
+.part-left img {
+    width: 70px;
+    height: 70px;
+}
+
+h4{
+    color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.leftb{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.data-out{
+    text-decoration: none;
+    margin: 3px;
+    background-color:rgba(64, 229, 18, 0.725) ;
+    width: 450px;
+    padding: 5px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    max-height:45%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.data-out:hover{
+    cursor: pointer;
+}
+.data-out img{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+.logo{
+    padding-top: 50px;
+}
+.logo img{
+    width: 300px;
+    margin-top: -40px;
+}
+.data-out h4{
+    margin-top: 33px;
+    font-size: 25px;
+}
+
+/*   styles   */
+
+.part-right .title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: rgb(7, 7, 149);
+    font-weight: bold;
+}
+.part-right .contunue{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: min-content;
+    margin: auto;
+    margin-top: 37%;
+    display: block;
+
+}
+.part-right .contunue img{
+    width: 300px;
+}
+
+.part-right .contunue img{
+    width: 300px;
+    height: 270px;
+    margin-bottom: 50px;
+}
+.part-right .contunue input{
+    width: 400px;
+    height: 70px;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 4px rgba(69, 69, 69, 0.7);
+    border: 1px solid white;
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* alert style */
+
+.part-right .test{
+    display: none;
+    margin: auto;
+    width: 70%;
+    padding: 50px;
+    padding-top: 50px;
+    margin-top: 100px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.684);
+    border-radius: 20px;
+}
+.test h3{
+   color: rgb(58, 23, 176);
+   font-size: 70px;
+   margin-top: -5px;
+}
+.test h4{
+    color: rgb(58, 23, 176);
+    font-size: 40px;
+    margin-top: -5px;
+}
+

@@ -1,0 +1,74 @@
+body{
+    background-image: url(../src/bachgroundmedi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+    display: none;
+}
+.service{
+    margin-left: 350px;
+}
+
+.-a{
+   margin-left: -320px;
+}
+.clock-auto{
+    background-color: rgba(124, 163, 232, 0.649);
+    width: 70%;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: auto;
+    min-height:500px;
+    padding-top: 15px;
+    margin-top: 200px;    
+}
+
+.clock-auto h3{
+    margin-top: 210px;
+    transform: scale(1.5);
+    color: rgb(19, 6, 81);
+}
+.clock-auto h3 span {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+}
+/* .leftb{
+    visibility: hidden;
+}
+.part-buttom-auto{
+    background-color: rgba(255, 255, 255, 0.525);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.3);
+  padding: 50px;
+    position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: space-between;
+    margin: auto;
+}
+.logo{
+    margin: auto;
+    margin-bottom: 50px;
+}
+.logo h1{
+    visibility: hidden;
+    color: rgb(21, 36, 105);
+    margin: auto;
+    margin-top: -50px;
+    text-align: center;
+    font-size: 50px;
+} */

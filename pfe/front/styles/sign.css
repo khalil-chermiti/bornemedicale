@@ -1,0 +1,130 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../src/bachgroundmedi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 4%;   
+}
+
+.login{
+    background: linear-gradient(#ececec69,rgba(140, 140, 249, 0.5)); 
+    padding: 3rem;
+    height: 620px;
+    width: 40%;
+    margin: auto;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;   
+    
+    }
+    
+
+#titre{
+    font-size: 40px;
+    color: rgb(22, 22, 134);
+}
+.inputtext{
+    background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  padding: 1rem;
+  width: 400px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  font-size: large;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all .3s;
+  margin-bottom: 1em;
+}
+.inputtext::placeholder {
+    color: black;
+  }
+.id-name{
+    display: flex       ;
+    justify-content: space-between;
+}
+.id-name input{
+    width: 190px;
+}
+#name , #nuberphone , #psw ,#psw-c,#date-n{
+width: 40%;
+}
+#f,#h,#o{
+    width: min-content;
+    width: 10px;
+}
+.inputs{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid rgba(5, 12, 112, 0.601);
+    width: 450px;
+    margin: auto;
+}
+.btns{
+    margin-top: 30px;
+}
+.btns button{
+    background-color: rgba(18, 18, 114, 0.842);
+    width: 430px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+.sex{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+input[type="radio"] {
+    transform: scale(2.5);
+    margin-right: 20px;
+  }
+
+
+.datenaiss {
+    padding: 0;
+    background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  padding: 1rem;
+  width: 400px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  font-size: large;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all .3s;
+  margin-bottom: 50px;
+}
+.datenaiss input {
+    margin: 0;
+    border: none;
+    border-radius: none;
+    background:none;
+    height: 30px;
+    font-weight: 400;
+  font-size: large;
+  outline: none;
+}

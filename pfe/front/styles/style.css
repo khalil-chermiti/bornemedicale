@@ -1,0 +1,39 @@
+body{
+    background-image: url(../src/bachgroundmedi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 25%;
+}
+
+a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: rgb(29, 93, 150);
+    padding:15px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    text-align: center;
+    border-radius: 100px;
+    padding-left: 300px;
+    padding-right: 300px;
+    
+animation: changeColor 5s infinite; /* animation qui dure 5 secondes et se répète en boucle */
+
+}
+
+
+@keyframes changeColor {
+  0% {
+    background-color: rgb(29, 93, 150); /* couleur de fond initiale */
+  }
+  50% {
+    background-color: rgb(255, 255, 255); /* couleur intermédiaire */
+    color: rgb(29, 93, 150);
+  }
+  100% {
+    background-color: rgb(29, 93, 150); /* couleur finale */
+  }
+}

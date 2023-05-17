@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link css  -->
+    <link rel="stylesheet" href="./styles/choixstyle.css">
+    <!-- links js  -->
+    <script src="./js/script.js"></script>
+    <script src="./js/mqtt.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    function nextpage(msg){
+        if(msg===1) window.location.href = "./partsauto/oxy.html";
+        else window.location.href = "main.html";
+
+    }
+</script>
+<body>
+    <div class="choix">
+        <div class="choix-auto" onclick="nextpage(1)">
+            <img src="./src/images/auto.png" alt="">
+            <div class="info">
+                <h2>Test Automatique</h2>
+                <p>
+                    Lancer test Automatique
+                </p>
+            </div>
+        </div>
+        <div class="choix-man" onclick="nextpage(0)">
+            <img src="./src/images/manuel.png" alt="">
+            <div class="info">
+                <h2>Test Manuel</h2>
+                <p>
+                    Lancer test Manuel
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
