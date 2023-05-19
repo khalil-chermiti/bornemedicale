@@ -1,9 +1,8 @@
-const User = require('./register.mongo')
+const User = require("./register.mongo");
 
 async function searchByPhoneNumber(phoneNumber) {
-    return await User.findOne({phoneNumber} , {__v : 0});
-
+  return await User.findOne({ phone_number: phoneNumber });
 }
 module.exports = {
-    searchByPhoneNumber,
-}
+  searchByPhoneNumber,
+};

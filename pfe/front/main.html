@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/stylemain.css">
+    <script src="./js/persisterDonnees.js"></script>
     <script src="./js/script.js"></script>
     <title>Document</title>
 </head>
@@ -71,36 +72,70 @@
                 <img src="./src/logowincom.png" alt="">
             </div>
             <div class="leftb">
-                <a class="data-out" href="./partsauto/getinfos.html" >
+                <h4 class="data-out" onclick="sendData()">Terminer le test
                     <img class="icon" src="./src/ticket.png" alt="">
-                    <h4>Terminer le test</h4>
-                </a>
-    
+                </h4>
+                <!-- <a class="data-out" href="./partsauto/getinfos.html" >
+                </a> -->
             </div>
         </div>
-    
-    
     </div>
+
+
+    <script>
+        function nextTest(msg){
+          if(msg==="part-oxy"){
+            window.location.href = "./parts_test/oxy.html";
+          }
+          else if(msg ==="part-poid"){
+            window.location.href = "./parts_test/poid.html";
+          }
+          else if(msg==="part-size"){
+            window.location.href = "./parts_test/size.html";
+          }
+          else if(msg ==="part-temp"){
+            window.location.href = "./parts_test/temp.html";
+          }
+          else if(msg ==="part-tensio"){
+            window.location.href = "./parts_test/tensio.html";
+          }
+    }
+    
+    /**sed data to be persisted in database */
+    const sendData = () => {
+      const authToken = getAuthToken();
+      const data = parseDataToFloat();
+    
+      if (!authToken) {
+        alert("vous devez vous connecter pour enregistrer vos données");
+        return;
+      }
+    
+      if (!data) {
+        alert("aucune donnée à enregistrer");
+      }
+    
+      fetch("http://localhost:3000/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          alert("vos données ont été enregistrées");
+          // navigate to ./partsauto/getinfos.html
+          window.location.href = "./partsauto/getinfos.html";
+        })
+        .catch(err => {
+          console.log(err);
+          alert("erreur lors de l'enregistrement des données");
+        });
+    };
+    
+    </script>
 </body>
 </html>
-
-<script>
-    function nextTest(msg){
-      if(msg==="part-oxy"){
-        window.location.href = "./parts_test/oxy.html";
-      }
-      else if(msg ==="part-poid"){
-        window.location.href = "./parts_test/poid.html";
-      }
-      else if(msg==="part-size"){
-        window.location.href = "./parts_test/size.html";
-      }
-      else if(msg ==="part-temp"){
-        window.location.href = "./parts_test/temp.html";
-      }
-      else if(msg ==="part-tensio"){
-        window.location.href = "./parts_test/tensio.html";
-      }
-
-}
-</script>

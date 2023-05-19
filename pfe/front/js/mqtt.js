@@ -1,11 +1,11 @@
 //les varibles
-var val_tension
-var val_oxy
-var val_cc
-var val_poid
-var val_size
-var val_mc= val_size/val_poid;
-var val_temp
+var val_tension;
+var val_oxy;
+var val_cc;
+var val_poid;
+var val_size;
+var val_mc = val_size / val_poid;
+var val_temp;
 var mqtt;
 // var host1 = "192.168.152.52";
 // var host = "pfe";
@@ -34,11 +34,7 @@ function MQTTconnect() {
 
 function onFailure(message) {
   console.log("Failed");
-  $("#status").val(
-    "Connection failed: " +
-      message.errorMessage +
-      "Retrying"
-  );
+  $("#status").val("Connection failed: " + message.errorMessage + "Retrying");
   setTimeout(MQTTconnect, reconnectTimeout);
 }
 
@@ -56,9 +52,7 @@ function onConnectionLost(responseObject) {
   console.log("Connection Lost");
   setTimeout(MQTTconnect, reconnectTimeout);
   $("#status").val(
-    "connection lost: " +
-      responseObject.errorMessage +
-      "Reconnecting"
+    "connection lost: " + responseObject.errorMessage + "Reconnecting"
   );
 }
 
@@ -68,28 +62,32 @@ function onMessageArrived(message) {
   console.log("onMessageArrived:" + message.payloadString);
   if (topic == "ctrl") {
     if (payload == "Hello") {
-      $("#display").html(
-        $("#display").html() + "<br>Hello Server!<br>"
-      );
+      $("#display").html($("#display").html() + "<br>Hello Server!<br>");
     }
   }
 
   if (topic == "oxy") {
+    persistDataToLocalStorage("oxy", message.payloadString);
     val_oxy = parseInt(payload);
   }
   if (topic == "cc") {
+    persistDataToLocalStorage("cc", message.payloadString);
     val_cc = parseInt(payload);
   }
   if (topic == "size") {
+    persistDataToLocalStorage("size", message.payloadString);
     val_size = parseInt(payload);
   }
   if (topic == "tensio") {
+    persistDataToLocalStorage("tensio", message.payloadString);
     val_tension = parseInt(payload);
   }
   if (topic == "temp") {
+    persistDataToLocalStorage("temp", message.payloadString);
     val_temp = parseInt(payload);
   }
   if (topic == "poid") {
+    persistDataToLocalStorage("poid", message.payloadString);
     val_poid = parseInt(payload);
   }
 }
@@ -104,24 +102,24 @@ function getValOxy() {
   mqtt.send(message);
 }
 function getValpoid() {
-    message = new Paho.MQTT.Message("poid");
-    message.destinationName = "ctrl";
-    mqtt.send(message);
+  message = new Paho.MQTT.Message("poid");
+  message.destinationName = "ctrl";
+  mqtt.send(message);
 }
 function getValsize() {
-    message = new Paho.MQTT.Message("size");
-    message.destinationName = "ctrl";
-    mqtt.send(message);
+  message = new Paho.MQTT.Message("size");
+  message.destinationName = "ctrl";
+  mqtt.send(message);
 }
 function getValtensio() {
-    message = new Paho.MQTT.Message("tensio");
-    message.destinationName = "ctrl";
-    mqtt.send(message);
+  message = new Paho.MQTT.Message("tensio");
+  message.destinationName = "ctrl";
+  mqtt.send(message);
 }
 function getValtemp() {
-    message = new Paho.MQTT.Message("temp");
-    message.destinationName = "ctrl";
-    mqtt.send(message);
+  message = new Paho.MQTT.Message("temp");
+  message.destinationName = "ctrl";
+  mqtt.send(message);
 }
 
 function getVals(msg) {
@@ -129,8 +127,6 @@ function getVals(msg) {
   message.destinationName = "ctrl";
   mqtt.send(message);
 }
-
-
 
 // const client = mqtt.connect('mqtt://192.168.152.52');
 // 		const h1 = document.getElementById('message');
@@ -151,11 +147,10 @@ function getVals(msg) {
 // 			console.log('Message envoyé:', message);
 // 		}
 
-
-function lireson(msg){
-  const audio = new Audio("../src/audios/"+msg);
-  audio.muted=false
+function lireson(msg) {
+  const audio = new Audio("../src/audios/" + msg);
+  audio.muted = false;
   audio.play();
-  }
+}
 
-  // modifier les valeurs en ficher "client.json"
+// modifier les valeurs en ficher "client.json"

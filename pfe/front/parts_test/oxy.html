@@ -1,117 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
-     <!-- css likns -->
-     <link rel="stylesheet" href="../styles/stylemain.css">
-     <!-- js link -->
-   
-     <script type = "text/javascript" src = "../js/jquiry.js"></script>
-     <script type="text/javascript" src="../js/paho.js" ></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
-     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-     <script src="../js/script.js"></script>
-     <script src="../js/mqtt.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- css likns -->
+    <link rel="stylesheet" href="../styles/stylemain.css" />
+    <!-- js link -->
 
-</head>
-<body id="body">
+    <script type="text/javascript" src="../js/jquiry.js"></script>
+    <script type="text/javascript" src="../js/paho.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="../js/persisterDonnees.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/mqtt.js"></script>
+  </head>
+  <body id="body">
     <div class="main" id="main">
-        <div class="part-up">
-            <div class="part-left">
-                <a class="service -a">
-                    <h4 id="date"></h4>
-                    
-                    <script>
-                        function updateClock() {
-                            var now = new Date();
-                            var hour = now.getHours();
-                            var minute = now.getMinutes();
-                            var second = now.getSeconds();
-                            var timeString = hour.toString().padStart(2, '0') + ':' +
-                                              minute.toString().padStart(2, '0') + ':' +
-                                              second.toString().padStart(2, '0');
-                            document.getElementById('date').textContent = timeString;
-                        }
-                
-                        updateClock();
-                        setInterval(updateClock, 1000);
-                    </script>
-                </a>
-                    <a class="service" onclick="nextTest('part-oxy')" style="margin-left: -140px;">
-                        <h4>Oxygéne</h4>
-                        <img class="icon" src="../src/pulse-oximeter.png" alt="">
-                        
-                    </a>
-                    <a class="service" onclick="nextTest('part-poid')">
-                        <h4>Poids</h4>
-                        <img class="icon" src="../src/scale.png" alt="">
-                       
-                    </a>
-    
-                
-                    <a class="service" onclick="nextTest('part-size')">
-                        <h4>Taille</h4>
-                        <img class="icon" src="../src/taille1.png" alt="">
-                       
-                    </a>
-                    <a class="service" onclick="nextTest('part-tensio')">
-                        <h4>Tension</h4>
-                        <img class="icon" src="../src/tension1.png" alt="">
-                        
-                    </a>
-                    <a class="service" onclick="nextTest('part-temp')">
-                        <h4>Température</h4>
-                        <img class="icon" src="../src/temperature.png" alt="">
-                    </a>
-                    
-            </div>
-                
-                <div class="part-right" id="part-right" style="background-image:url(../src/images/oxy.gif);">
-                    <div class="part-oxy" id="part-oxy">
-                        <div class="title"><h2>Oxygène</h2>
-                        </div>
-            
-                        <!-- contunue -->
-                        <div class="contunue" id="contunue">
-                        
-                            <!-- <img src="../src/images/testoxy.png" alt=""> -->
-                            <input type="button" value="Démarrer" onclick="next('oxy');">
-                        </div>
-                        <!-- start -->
-                        <div class="test" id="oxy">
-                            <h4 id="msg1">veuillez patienter ... </h4>
-                            <h3 id="msg2">5 secondes </h3>
-                        </div>
-                        <!-- fin -->
-                    </div>
-                  
-                </div>
-        </div>   
-        <div class="part-buttom">
-            <div class="logo -m">
-                <img src="../src/images/medilogo.png" alt="">
-            </div>
-            <div class="logo">
-                <img src="../src/logowincom.png" alt="">
-            </div>
-            <div class="leftb">
-                <a class="data-out" href="../partsauto/getinfos.html" >
-                    <img class="icon" src="../src/images/check-out.png" alt="">
-                    <h4>Terminer le test</h4>
-                </a>
-    
-            </div>
+      <div class="part-up">
+        <div class="part-left">
+          <a class="service -a">
+            <h4 id="date"></h4>
+
+            <script>
+              function updateClock() {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                var timeString =
+                  hour.toString().padStart(2, "0") +
+                  ":" +
+                  minute.toString().padStart(2, "0") +
+                  ":" +
+                  second.toString().padStart(2, "0");
+                document.getElementById("date").textContent = timeString;
+              }
+
+              updateClock();
+              setInterval(updateClock, 1000);
+            </script>
+          </a>
+          <a
+            class="service"
+            onclick="nextTest('part-oxy')"
+            style="margin-left: -140px"
+          >
+            <h4>Oxygéne</h4>
+            <img class="icon" src="../src/pulse-oximeter.png" alt="" />
+          </a>
+          <a class="service" onclick="nextTest('part-poid')">
+            <h4>Poids</h4>
+            <img class="icon" src="../src/scale.png" alt="" />
+          </a>
+
+          <a class="service" onclick="nextTest('part-size')">
+            <h4>Taille</h4>
+            <img class="icon" src="../src/taille1.png" alt="" />
+          </a>
+          <a class="service" onclick="nextTest('part-tensio')">
+            <h4>Tension</h4>
+            <img class="icon" src="../src/tension1.png" alt="" />
+          </a>
+          <a class="service" onclick="nextTest('part-temp')">
+            <h4>Température</h4>
+            <img class="icon" src="../src/temperature.png" alt="" />
+          </a>
         </div>
-    
-    
+
+        <div
+          class="part-right"
+          id="part-right"
+          style="background-image: url(../src/images/oxy.gif)"
+        >
+          <div class="part-oxy" id="part-oxy">
+            <div class="title"><h2>Oxygène</h2></div>
+
+            <!-- contunue -->
+            <div class="contunue" id="contunue">
+              <!-- <img src="../src/images/testoxy.png" alt=""> -->
+              <input type="button" value="Démarrer" onclick="next('oxy');" />
+            </div>
+            <!-- start -->
+            <div class="test" id="oxy">
+              <h4 id="msg1">veuillez patienter ...</h4>
+              <h3 id="msg2">5 secondes</h3>
+            </div>
+            <!-- fin -->
+          </div>
+        </div>
+      </div>
+      <div class="part-buttom">
+        <div class="logo -m">
+          <img src="../src/images/medilogo.png" alt="" />
+        </div>
+        <div class="logo">
+          <img src="../src/logowincom.png" alt="" />
+        </div>
+        <div class="leftb data-out"  onclick="sendData()">
+          <!-- <a class="data-out" href="../partsauto/getinfos.html"> -->
+          <img class="icon" src="../src/images/check-out.png" alt="" />
+          <h4>Terminer le test</h4>
+          </a>
+        </div>
+      </div>
     </div>
-</body>
-<script>
-    lireson("oxy.mp3")
-    setTimeout(()=>{lireson("oxy_arab.mp3")},4000)
-    setTimeout(()=>{lireson("oxy_ang.mp3")},9000)
-</script>
+  </body>
+  <script>
+    lireson("oxy.mp3");
+    setTimeout(() => {
+      lireson("oxy_arab.mp3");
+    }, 4000);
+    setTimeout(() => {
+      lireson("oxy_ang.mp3");
+    }, 9000);
+
+    /**sed data to be persisted in database */
+    const sendData = () => {
+      const authToken = getAuthToken();
+      const data = parseDataToFloat();
+
+      if (!authToken) {
+        alert("vous devez vous connecter pour enregistrer vos données");
+        return;
+      }
+
+      if (!data) {
+        alert("aucune donnée à enregistrer");
+      }
+
+      fetch("http://localhost:3000/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          alert("vos données ont été enregistrées");
+          // navigate to ./partsauto/getinfos.html
+          window.location.href = "../partsauto/getinfos.html";
+        })
+        .catch(err => {
+          console.log(err);
+          alert("erreur lors de l'enregistrement des données");
+        });
+    };
+  </script>
 </html>
