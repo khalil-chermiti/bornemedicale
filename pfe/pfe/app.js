@@ -11,8 +11,9 @@ const dataRouter = require("./routes/data.routes");
 
 app.use(cors(corsOptions));
 app.use(credentials);
-app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 app.get("/", (req, res) => res.send({ message: "ok" }));

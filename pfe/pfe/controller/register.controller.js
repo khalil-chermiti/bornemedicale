@@ -6,8 +6,6 @@ const jwt = require("jsonwebtoken");
 async function registerUser(req, res) {
   const user = req.body;
 
-  console.log(user);
-
   //check valid input
   if (
     !user ||
@@ -24,6 +22,7 @@ async function registerUser(req, res) {
   }
   //check for unique phoneNumber
   let phoneNumber = await phoneExists(user.numberPhone);
+
   if (phoneNumber.length > 0) {
     return res.status(403).send({ message: "username is taken" });
   }

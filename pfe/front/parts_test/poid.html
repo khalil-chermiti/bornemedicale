@@ -16,6 +16,7 @@
       type="text/javascript"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/sendData.js"></script>
     <script src="../js/persisterDonnees.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/mqtt.js"></script>
@@ -120,40 +121,5 @@
     setTimeout(() => {
       lireson("poid_ang.mp3");
     }, 9000);
-
-    /**sed data to be persisted in database */
-    const sendData = () => {
-      const authToken = getAuthToken();
-      const data = parseDataToFloat();
-
-      if (!authToken) {
-        alert("vous devez vous connecter pour enregistrer vos données");
-        return;
-      }
-
-      if (!data) {
-        alert("aucune donnée à enregistrer");
-      }
-
-      fetch("http://localhost:3000/data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify(data),
-      })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res);
-          alert("vos données ont été enregistrées");
-          // navigate to ./partsauto/getinfos.html
-          window.location.href = "../partsauto/getinfos.html";
-        })
-        .catch(err => {
-          console.log(err);
-          alert("erreur lors de l'enregistrement des données");
-        });
-    };
   </script>
 </html>

@@ -3,16 +3,17 @@ const { JWT_SECRET } = require("../utils/config.js");
 const { searchByPhoneNumber } = require("../models/login.model");
 
 async function loginUser(req, res) {
-  const user = req.body;
-  if (!user || !user.phoneNumber)
-    return res.json({ message: "Veuillez remplir tous les champs" });
+  if (!req.body.phoneNumber)
+    return res
+      .status(400)
+      .json({ message: "Veuillez remplir tous les champs" });
 
   // get user from database
-  const dbUser = await searchByPhoneNumber(user.phoneNumber);
+  const dbUser = await searchByPhoneNumber(req.body.phoneNumber);
 
   // check password
-  if (user.phoneNumber != dbUser?.phone_number)
-    return res.json({ "message : ": "wrong phone number" });
+  if (!dbUser?.phone_number)
+    return res.status(400).json({ "message : ": "wrong phone number" });
 
   // sign jwt
   let id = dbUser._id.toString();
@@ -21,7 +22,7 @@ async function loginUser(req, res) {
 
   return res
     .status(200)
-    .cookie("access_token", token)
+    .cookie("access_token", token, { maxAge: 1000 * 60 * 15 })
     .json({ message: "login success", token: token });
 }
 module.exports = {

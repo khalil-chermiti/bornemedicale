@@ -10,7 +10,7 @@ function userExist(req, res, next) {
 }
 
 function jwtAuth(req, res, next) {
-  const token = req.cookies.access_token;
+  const token = req.headers.authorization?.split(" ")[1];
 
   if (!token) return res.status(400).json({ message: "missing token" });
 
@@ -20,7 +20,10 @@ function jwtAuth(req, res, next) {
     return res.clearCookie("access_token").redirect("/login");
   }
 
+  console.log("decoded token", decodedToken);
+
   req.userID = decodedToken.id;
+
   next();
 }
 
